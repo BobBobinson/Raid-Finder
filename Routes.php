@@ -38,4 +38,12 @@ Route::set('Character',function(){
 		die();
 	}
 });
+Route::set('Raids',function(){
+	if(Login::Log_in()){
+		Raids::CreatView('Raids');
+	}else{
+		header("Location: Login");
+		die();
+	}
+});
 ?>

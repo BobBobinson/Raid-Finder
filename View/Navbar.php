@@ -1,3 +1,4 @@
+<!-- Latest compiled and minified JavaScript -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,19 +9,17 @@
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
+  <div class="container-fluid" >
     <div class="navbar-header">
       <a class="navbar-brand" href="#">RaidFinder</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Availability</a></li>
-      <li><a href="#">Character</a></li>
-      <li><a href="#">Raids</a></li>
+      <li <?php if($_GET['url']=="Availability"){echo ' class="active"';} ?>><a href="Availability">Availability</a></li>
+      <li <?php if($_GET['url']=="Character"){echo ' class="active"';} ?>><a href="Character">Character</a></li>
+      <li <?php if($_GET['url']=="Raids"){echo ' class="active"';} ?>><a href="Raids">Raids</a></li>
     </ul>
 	<ul class="nav navbar-nav navbar-right">
-		<li><a href="logoutControler.php">Logout</a></li>
+		<li><a href="Logout">Logout</a></li>
 	</ul>
   </div>
 </nav>
-</body>
-</html>

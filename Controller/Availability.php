@@ -17,9 +17,9 @@ class Availability extends Controller{
 	}
 	public static function CreatView($data){
 		$Availability = $data;
+		require_once('./View/Navbar.php');
 		require_once('./View/Availability.php');
-		
-		
+		require_once('./View/Footer.php');
 	}
 	function checkedtotext($text){
 		if($text=="1"){

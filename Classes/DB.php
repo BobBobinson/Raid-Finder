@@ -35,19 +35,22 @@ class DB{
     }
 	public function DoSQL($sql){
 		//$result = $this->conn->query($sql);
-		if ($result=$this->conn->query($sql)) {
-		} else {
-			echo "Error: " . $sql . "<br>" . $this->conn->error;
+		$result = $this->conn->query($sql);
+		if($result === false)
+		{
+		   user_error("Query failed: ".$this->conn->error."<br />\n$query");
+		   return false;
 		}
-
-		$out;
-		$index=0;
-		if ($result->num_rows > 0) {
-			for($i=0;$i<$result->num_rows;$i++){
-				$out[$index]=mysqli_fetch_array($result);
+		if(strpos($sql,"SELECT")!==false){
+			if($result->num_rows == 0)
+			{
+			   return null;
 			}
-		return $out;
-		}else return false;
+			else
+			{
+			   return $result->fetch_array();
+			}
+		}
 		$this->conn->commit();
 	}
 }
